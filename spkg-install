@@ -19,5 +19,8 @@ echo "library_dirs = $SPKG_LOCAL/lib" >> site.cfg
 echo "include_dirs = $SPKG_LOCAL/include" >> site.cfg
 echo "" >> site.cfg
 
+export NUMPY_FCONFIG="config_fc --noopt --noarch"
+
 rm -rf "$SPKG_LOCAL"/lib/python/site-packages/numpy
-python setup.py install
+
+python setup.py install ${NUMPY_FCONFIG}
